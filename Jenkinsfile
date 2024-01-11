@@ -8,7 +8,7 @@ pipeline {
         // }
         stage('Build') {
             steps {
-                echo params.ResetDb
+                echo params.ResetDB
                 sh 'dotnet restore'
                 sh 'dotnet build --no-restore'
             }
