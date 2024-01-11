@@ -1,14 +1,13 @@
 pipeline {
     agent any
     stages {
-        // stage('Clone repository') {
-        //     steps {
-        //          git branch: 'main', credentialsId: 'Ndkn', url: 'https://github.com/ndknitor/JenkinsImpact'
-        //     }
-        // }
+        stage('Clone repository') {
+            steps {
+                 git branch: 'main', credentialsId: 'Ndkn', url: 'https://github.com/ndknitor/JenkinsImpact'
+            }
+        }
         stage('Build') {
             steps {
-                echo params.ResetDB
                 sh 'dotnet restore'
                 sh 'dotnet build --no-restore'
             }
