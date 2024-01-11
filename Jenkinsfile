@@ -22,5 +22,29 @@ pipeline {
                 sh 'dotnet run --project JenkinsImpact'
             }
         }
+        stage('Deploy development') {
+            when {
+                expression { params.CD == "Development" }
+            }
+            steps {
+                echo 'Deploy development'
+            }
+        }
+        stage('Deploy staging') {
+            when {
+                expression { params.CD == "Staging" }
+            }
+            steps {
+                echo 'Deploy staging'
+            }
+        }
+        stage('Deploy production') {
+            when {
+                expression { params.CD == "Production" }
+            }
+            steps {
+                echo 'Deploy production'
+            }
+        }
     }
 }
