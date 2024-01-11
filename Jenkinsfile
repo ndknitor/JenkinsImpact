@@ -47,4 +47,9 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo "Clean up"
+        }
+    }
 }
